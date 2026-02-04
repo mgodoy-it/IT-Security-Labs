@@ -51,3 +51,15 @@ and managing permissions in a Windows Server lab environment.
 - Identity and access management (IAM)
 - User and group administration
 - Basic troubleshooting
+
+## Screenshots
+
+### Active Directory Users & Groups
+![AD Users and Groups](screenshots/active-directory/ad-users-groups.png)
+
+### Organizational Unit Structure
+![OU Structure](screenshots/active-directory/ou-structure.png)
+
+### Domain-Joined Client
+![Domain Join](screenshots/active-directory/domain-join.png)
+
