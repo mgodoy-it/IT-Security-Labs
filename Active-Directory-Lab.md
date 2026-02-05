@@ -55,7 +55,7 @@ and managing permissions in a Windows Server lab environment.
 ## Screenshots
 
 ### Active Directory Users & Groups
-![AD Users and Groups] https://github.com/mgodoy-it/IT-Security-Labs/blob/015504407589d8d3c3f346d8a35d7192ba6d1838/images/test1.png
+![AD Users and Groups] (https://github.com/mgodoy-it/IT-Security-Labs/blob/015504407589d8d3c3f346d8a35d7192ba6d1838/images/test1.png)
 ### Organizational Unit Structure
 ![OU Structure](screenshots/active-directory/ou-structure.png)
 
