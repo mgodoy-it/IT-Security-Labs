@@ -49,6 +49,10 @@ Step 9: Verify Data - Click **Start Searching** to confirm that the data was add
 
 ## Example: Investigating Web-Based Attacks
 
+The following exercises demonstrate how to use Splunk to detect common web-based attacks using sample web logs.
+
+---
+
 ### 1. SQL Injection
 - **Objective:** Detect potential SQL injection attempts from web logs.  
 - **Hint:** Look for unusual characters or SQL keywords in URI parameters, such as `'` or `1=1`.  
@@ -110,7 +114,20 @@ Step 9: Verify Data - Click **Start Searching** to confirm that the data was add
 - **Hint:** Look for URLs using `file://`, `gopher://`, or internal IPs.  
 - **Example SPL:** index=web_logs uri="file://" OR uri="gopher://" OR uri="127.0.0.1"
 
+--- 
 
+### Notes
+- All exercises are safe to perform using **sample web logs**.  
+- Demonstrates practical **web security monitoring skills** in Splunk.
+
+### Skills Demonstrated
+- Detect SQL injection, XSS, CSRF, and RCE attempts  
+- Monitor login anomalies and session hijacking  
+- Identify directory traversal and insecure deserialization attempts  
+- Use Splunk SPL for web log analysis
+
+
+--- 
 
 ## Example: Investigating Network-Based Attacks
 
@@ -187,11 +204,11 @@ index=network_logs dest_ip="10.0.0.5" | stats count by src_ip | where count > 50
 
 ---
 
-## Notes
+### Notes
 - These exercises use **sample network logs** in a lab environment.  
 - The searches are safe for learning and demonstrate **practical network security monitoring**.  
 
-## Skills Demonstrated
+### Skills Demonstrated
 - Detecting port scanning and DDoS attacks  
 - Monitoring brute-force login attempts over SSH  
 - Identifying DNS tunneling and malicious payloads  
