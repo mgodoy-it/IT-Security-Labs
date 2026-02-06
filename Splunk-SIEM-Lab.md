@@ -1,61 +1,19 @@
-# Splunk SIEM Lab – Basic Searches & Alerts
+## Adding Data to Splunk
 
-## Objective
-Practice basic Splunk usage, including data indexing, searching, and alert creation in a lab environment.
+There are three ways to add data to Splunk:
 
-## Lab Environment
-- Splunk Enterprise / Splunk Free (Lab environment)  
-- Windows Server / Linux server for log sources  
-- Sample log data (Windows Event Logs, Syslog)
+- **Upload** – You can upload a file or archive of files into Splunk Enterprise for indexing. Note that Splunk consumes the uploaded file(s) only once; it does not monitor them continuously.  
+- **Monitor** – You can use this option to monitor files, directories, network streams, scripts, and other types of machine data that Splunk can index. This is the option you would most likely use in a production environment.  
+- **Forward** – You can use this option to receive data from forwarders.
 
----
+The easiest way to add data for a lab is to use the **Upload** option.  
 
-## Step 1: Add Data to Splunk
-1. Log in to Splunk Web interface  
+### Step-by-Step: Upload a File to Splunk
+
+1. Log in to the **Splunk Web interface**  
 2. Navigate to **Settings → Add Data**  
-3. Select **Upload** → Choose a sample log file (e.g., Windows Event Logs or Syslog)  
-4. Set the **source type** and **index name** (e.g., `lab_index`)  
-5. Click **Next → Review → Submit**
+3. Select **Upload** → Choose the log file or archive you want to index  
+4. Set the **Source type** and **Index name** (e.g., `lab_index`)  
+5. Click **Next → Review → Submit**  
 
 **Screenshot placeholder:**  
-`screenshots/splunk/splunk-add-data.png`
-
----
-
-## Step 2: Perform Basic Searches
-1. Go to **Search & Reporting** app in Splunk  
-2. Select the index used in Step 1  
-3. Perform searches, for example:  
-   - `index=lab_index sourcetype=WinEventLog`  
-   - `index=lab_index ERROR OR WARNING`  
-4. Apply **time filters** to narrow results  
-5. Review search results for patterns or notable events  
-
-**Screenshot placeholder:**  
-`screenshots/splunk/splunk-search-results.png`
-
----
-
-## Step 3: Create an Alert
-1. From your search in Step 2, click **Save As → Alert**  
-2. Set alert conditions:  
-   - **Trigger alert:** When number of results > 0  
-   - **Trigger actions:** Email notification (optional in lab)  
-3. Save the alert and verify it appears in **Settings → Searches, Reports, and Alerts**
-
-**Screenshot placeholder:**  
-`screenshots/splunk/splunk-alert.png`
-
----
-
-## Notes
-- Lab performed in a safe, isolated environment  
-- Sample log data used; no sensitive data included  
-- Alerts are configured for lab demonstration only
-
-## Skills Demonstrated
-- Indexing and searching log data in Splunk  
-- Creating and managing alerts  
-- Understanding log sources and sourcetypes  
-- Basic SIEM operations and monitoring
-
