@@ -51,14 +51,69 @@ and managing permissions in a Windows Server lab environment.
 - Identity and access management (IAM)
 - User and group administration
 - Basic troubleshooting
+  
 
-## Screenshots
+## Installing Active Directory in Windows Server 
+
 
 ### Active Directory Users & Groups
-![AD Users and Groups](https://github.com/mgodoy-it/IT-Security-Labs/blob/015504407589d8d3c3f346d8a35d7192ba6d1838/images/test1.png)
+Step 1: Go to Server manager and click on Add roles and Features.
+![Server Manager](/images/test1.png)
 
-### Organizational Unit Structure
-![OU Structure](screenshots/active-directory/ou-structure.png)
+Step 2: Select the Role based Installation and Select “Next”.
+![Server Manager](/images/test2.png)
+
+Step 3: Select the Server from Server Pool.
+![Server Manager](/images/test3.png)
+
+Step 4: Select the Active Directory Domain Services feature.
+![Server Manager](/images/test4.png)
+
+Then check Active Directory Domain Services in Server Roles, and click Add Features by default in the pop-up window to install active Directory Domain Services.
+![Server Manager](/images/test5.png)
+
+Step 5: Confirm page > Click on “Install”.
+![Server Manager](/images/test6.png)
+
+Step 6: The installation is complete. Click "Promote this server to a domain controller".
+![Server Manager](/images/test7.png)
+
+Step 7: In the Deploy Configuration pop-up window, select Add a new forest, enter the root domain name, and then click Next. In this example, the new forest is mycompany.local.
+![Server Manager](/images/test8.png)
+
+Step 8: In Domain Controller Selection, enter the custom password, then click Next.
+![Server Manager](/images/test9.png)
+
+Step 9: Click Next in DNS Options.
+![Server Manager](/images/test10.png)
+
+Step10: In Other Options, click Next.
+![Server Manager](/images/test11.png)
+
+Step 11: Leave the default settings in Paths, then click Next.
+![Server Manager](/images/test12.png)
+
+Step 12: In Review Options, review and confirm the information, then click Next. Optionally, save the PowerShell script if you want to automate this task in another environment.
+![Server Manager](/images/test13.png)
+
+Step 13: After the Prerequisites Check completes, click Install.
+![Server Manager](/images/test14.png)
+
+Step 14: When the installation is complete, the system will automatically restart to apply the Active Directory configuration.
+![Server Manager](/images/test15.png)
+
+
+
+### Create user and group accounts
+
+Step 1: Create two user groups: HWC-ADFSAdmin and HWC-ADFSGuest. Open the Active Directory Administrative Center from Management Tools.
+![UC](/images/ADUC1.png)
+![UC](/images/ADUC2.png)
+
+
+
+
+
 
 ### Domain-Joined Client
 ![Domain Join](screenshots/active-directory/domain-join.png)
