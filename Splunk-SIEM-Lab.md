@@ -47,6 +47,55 @@ Step 9: Verify Data - Click **Start Searching** to confirm that the data was add
 ![SIEM](/images/SIEM9.png)
 
 
+## Example: Investigating Web-Based Attacks
+
+### SQL Injection
+- **Objective:** Detect potential SQL injection attempts from web logs.  
+- **Hint:** Look for unusual characters or SQL keywords in URI parameters, such as `'` or `1=1`.  
+- **Example Search (Splunk SPL):** index=web_logs uri_param="' OR 1=1" OR uri_param="UNIONSELECT*"
+
+
+### Cross-Site Scripting (XSS)
+- **Objective:** Identify signs of XSS attacks from web logs.  
+- **Hint:** Search for requests containing suspicious JavaScript keywords like `script`, `<script>`, or `onload`.  
+- **Example Search (Splunk SPL):** index=web_logs request="<script>" OR request="onload"
+
+### Directory Traversal
+- **Objective:** Detect attempts to access files outside the web root.  
+- **Hint:** Look for URI patterns containing `../` or `%2e%2e/`.  
+- **Example SPL:** index=web_logs uri="../" OR uri="%2e%2e/"
+
+### Brute Force
+- **Objective:** Monitor repeated failed login attempts from the same IP.  
+- **Hint:** Look for multiple failed authentications in a short time.  
+- **Example SPL:** index=auth_logs action=failure | stats count by src_ip, user | where count > 5
+
+### Session Hijacking
+- **Objective:** Detect multiple logins from different IPs for the same account.  
+- **Hint:** Look for same user, different IP, short timeframe.  
+- **Example SPL:** index=auth_logs action=success | stats dc(src_ip) as ip_count by user | where ip_count > 1
+
+### Remote Code Execution (RCE)
+- **Objective:** Identify suspicious requests attempting to execute code.  
+- **Hint:** Look for unusual file extensions or commands.  
+- **Example SPL:** index=web_logs uri=".php" OR uri=".exe" OR uri=".sh"
+
+### XML External Entity (XXE)
+- **Objective:** Detect requests with XML payloads referencing external entities.  
+- **Hint:** Look for unusual XML processing instructions.  
+- **Example SPL:** index=web_logs request="<!ENTITY" OR request="SYSTEM"
+
+### Insecure Deserialization
+- **Objective:** Detect suspicious serialized data in requests.  
+- **Hint:** Look for references to known vulnerable serialization libraries.  
+- **Example SPL:** index=web_logs request="serialize" OR request="pickle"
+
+### Server-Side Request Forgery (SSRF)
+- **Objective:** Monitor requests targeting internal or sensitive resources.  
+- **Hint:** Look for URLs using `file://`, `gopher://`, or internal IPs.  
+- **Example SPL:** index=web_logs uri="file://" OR uri="gopher://" OR uri="127.0.0.1"
+
+
 
 
 
