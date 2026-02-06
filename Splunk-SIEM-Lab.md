@@ -10,10 +10,8 @@ The easiest way to add data for a lab is to use the **Upload** option.
 
 ### Step-by-Step: Upload a File to Splunk
 
-1. Log in to the **Splunk Web interface**  
-2. Navigate to **Settings → Add Data**  
-3. Select **Upload** → Choose the log file or archive you want to index  
-4. Set the **Source type** and **Index name** (e.g., `lab_index`)  
-5. Click **Next → Review → Submit**  
+Step 1: Add Data to Splunk
 
-**Screenshot placeholder:**  
+
+
+
