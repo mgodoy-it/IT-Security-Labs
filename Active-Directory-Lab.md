@@ -1,56 +1,51 @@
 # Active Directory Lab – User & Group Management
 
 ## Objective
-Practice basic Active Directory administration by creating users, groups,
-and managing permissions in a Windows Server lab environment.
+Install Active Directory Domain Services (AD DS), promote a server to a Domain Controller, create users and groups, and manage group membership in a lab environment.
 
-## Lab Environment
-- Windows Server (Domain Controller)
-- Windows 10 Client (joined to domain)
-- Active Directory Domain Services (AD DS)
+## Install Active Directory Domain Services
 
-## Tasks Performed
+1. Open **Server Manager** → Click **Add Roles and Features**  
+2. Select **Role-based or feature-based installation** → Click **Next**  
+3. Select the **Server** from the Server Pool → Click **Next**  
+4. From the **Roles** list, select **Active Directory Domain Services** → Click **Next**  
+5. Confirm installation → Click **Install**  
+6. After installation completes, click **Promote this server to a domain controller**  
 
-### 1. Domain Setup
-- Installed Active Directory Domain Services
-- Promoted server to Domain Controller
-- Created a new domain (lab environment)
+### Promote Domain Controller
+7. In the **Deploy Configuration** pop-up, select **Add a new forest** → Enter the **Root Domain Name** (e.g., `mycompany.local`) → Click **Next**  
+8. In **Domain Controller Options**, set a **DSRM password** → Click **Next**  
+9. Click **Next** in **DNS Options**  
+10. Click **Next** in **Additional Options**  
+11. Leave default **Paths** → Click **Next**  
+12. Review all settings → Optionally save **PowerShell script** → Click **Next**  
+13. After the **Prerequisites Check** completes → Click **Install**  
+14. The server will automatically **restart** to complete AD configuration  
 
-### 2. User Management
-- Created multiple domain user accounts
-- Set passwords and enforced password policies
-- Enabled and disabled user accounts for testing
+## Create Users and Groups
 
-### 3. Group Management
-- Created security groups
-- Added users to appropriate groups
-- Tested group-based access control
+1. Open **Active Directory Administrative Center (ADAC)** from **Management Tools**  
+2. Create **two security groups**:  
+   - `HWC-ADFSAdmin`  
+   - `HWC-ADFSGuest`  
+3. Create **two users**:  
+   - `John`  
+   - `Daenerys`  
+4. Add users to their respective groups:  
+   - John → HWC-ADFSAdmin  
+   - Daenerys → HWC-ADFSGuest  
 
-### 4. Organizational Units (OUs)
-- Created Organizational Units
-- Moved users and groups into OUs
-- Applied basic organization structure
-
-### 5. Login & Access Testing
-- Joined a Windows client machine to the domain
-- Logged in using domain user credentials
-- Verified group membership and access
-
-## Tools Used
-- Active Directory Users and Computers (ADUC)
-- Windows Server
-- Windows 10
-- Virtual Machine environment
-
-## Security Notes
-- Lab performed in an isolated, non-production environment
-- No real user data or credentials were used
+## Notes
+- Lab performed in an isolated, non-production environment  
+- No real user data or credentials were used  
+- Groups and users can later be used to test permissions and access control
 
 ## Skills Demonstrated
-- Active Directory fundamentals
-- Identity and access management (IAM)
-- User and group administration
+- Active Directory fundamentals  
+- Identity and Access Management (IAM)  
+- User and group administration  
 - Basic troubleshooting
+
   
 
 ## Installing Active Directory in Windows Server 
@@ -107,14 +102,18 @@ Step 14: When the installation is complete, the system will automatically restar
 ### Create user and group accounts
 
 Step 1: Create two user groups: HWC-ADFSAdmin and HWC-ADFSGuest. Open the Active Directory Administrative Center from Management Tools.
+
 ![UC](/images/ADUC1.png)
 ![UC](/images/ADUC2.png)
 
+Step 2: Create two users: John and Daenerys.
+![UC](/images/ADUC3.png)
+![UC](/images/ADUC4.png)
+
+Step 3: Add the users to their respective groups.
+![UC](/images/ADUC5.png)
+
+Step 4: Finish the Active Directory installation.
 
 
-
-
-
-### Domain-Joined Client
-![Domain Join](screenshots/active-directory/domain-join.png)
 
