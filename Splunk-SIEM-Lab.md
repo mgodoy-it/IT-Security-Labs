@@ -49,51 +49,157 @@ Step 9: Verify Data - Click **Start Searching** to confirm that the data was add
 
 ## Example: Investigating Web-Based Attacks
 
-### SQL Injection
+### 1. SQL Injection
 - **Objective:** Detect potential SQL injection attempts from web logs.  
 - **Hint:** Look for unusual characters or SQL keywords in URI parameters, such as `'` or `1=1`.  
 - **Example Search (Splunk SPL):** index=web_logs uri_param="' OR 1=1" OR uri_param="UNIONSELECT*"
 
+---
 
-### Cross-Site Scripting (XSS)
+### 2. Cross-Site Scripting (XSS)
 - **Objective:** Identify signs of XSS attacks from web logs.  
 - **Hint:** Search for requests containing suspicious JavaScript keywords like `script`, `<script>`, or `onload`.  
 - **Example Search (Splunk SPL):** index=web_logs request="<script>" OR request="onload"
 
-### Directory Traversal
+---
+
+### 3. Directory Traversal
 - **Objective:** Detect attempts to access files outside the web root.  
 - **Hint:** Look for URI patterns containing `../` or `%2e%2e/`.  
 - **Example SPL:** index=web_logs uri="../" OR uri="%2e%2e/"
 
-### Brute Force
+---
+
+### 4. Brute Force
 - **Objective:** Monitor repeated failed login attempts from the same IP.  
 - **Hint:** Look for multiple failed authentications in a short time.  
 - **Example SPL:** index=auth_logs action=failure | stats count by src_ip, user | where count > 5
 
-### Session Hijacking
+---
+
+### 5. Session Hijacking
 - **Objective:** Detect multiple logins from different IPs for the same account.  
 - **Hint:** Look for same user, different IP, short timeframe.  
 - **Example SPL:** index=auth_logs action=success | stats dc(src_ip) as ip_count by user | where ip_count > 1
 
-### Remote Code Execution (RCE)
+---
+
+### 6. Remote Code Execution (RCE)
 - **Objective:** Identify suspicious requests attempting to execute code.  
 - **Hint:** Look for unusual file extensions or commands.  
 - **Example SPL:** index=web_logs uri=".php" OR uri=".exe" OR uri=".sh"
 
-### XML External Entity (XXE)
+---
+
+### 7. XML External Entity (XXE)
 - **Objective:** Detect requests with XML payloads referencing external entities.  
 - **Hint:** Look for unusual XML processing instructions.  
 - **Example SPL:** index=web_logs request="<!ENTITY" OR request="SYSTEM"
 
-### Insecure Deserialization
+---
+
+### 8. Insecure Deserialization
 - **Objective:** Detect suspicious serialized data in requests.  
 - **Hint:** Look for references to known vulnerable serialization libraries.  
 - **Example SPL:** index=web_logs request="serialize" OR request="pickle"
 
-### Server-Side Request Forgery (SSRF)
+---
+
+### 9. Server-Side Request Forgery (SSRF)
 - **Objective:** Monitor requests targeting internal or sensitive resources.  
 - **Hint:** Look for URLs using `file://`, `gopher://`, or internal IPs.  
 - **Example SPL:** index=web_logs uri="file://" OR uri="gopher://" OR uri="127.0.0.1"
+
+
+
+## Example: Investigating Network-Based Attacks
+
+The following exercises use network logs (Suricata, Zeek, firewall, or server logs) to detect common network-based attacks.
+
+### 1. Port Scanning
+- **Objective:** Detect multiple connection attempts from the same source IP to different destination ports.  
+- **Hint:** Look for many connection attempts in a short timeframe.  
+- **Example SPL:** index=network_logs | stats count by src_ip, dest_port | where count > 10
+
+---
+
+### 2. Distributed Denial of Service (DDoS)
+- **Objective:** Identify high traffic or many connection requests to a single destination IP.  
+- **Hint:** Look for sudden spikes in traffic from multiple source IPs.  
+- **Example SPL:**
+index=network_logs dest_ip="10.0.0.5" | stats count by src_ip | where count > 50
+
+---
+
+### 3. Brute Force SSH Attack
+- **Objective:** Detect repeated failed SSH login attempts.  
+- **Hint:** Check for multiple failures from the same IP.  
+- **Example SPL:** index=auth_logs ssh action=failure | stats count by src_ip | where count > 5
+
+
+---
+
+### 4. DNS Tunneling
+- **Objective:** Identify unusual DNS queries that may indicate tunneling.  
+- **Hint:** Look for abnormally large query sizes.  
+- **Example SPL:** index=dns_logs query_length>200
+
+
+---
+
+### 5. Malicious Payload
+- **Objective:** Detect known malicious payloads in network logs (Suricata/Zeek).  
+- **Hint:** Search for signatures or indicators linked to malware.  
+- **Example SPL:** index=ids_logs signature="malware" OR signature="exploit"
+
+
+---
+
+### 6. Malicious File Download
+- **Objective:** Detect potentially dangerous file downloads from HTTP logs.  
+- **Hint:** Look for `.exe`, `.dll`, or other suspicious file types.  
+- **Example SPL:** index=http_logs uri_path=".exe" OR uri_path=".dll"
+
+
+---
+
+### 7. Network Reconnaissance
+- **Objective:** Detect port scanning or network mapping activity.  
+- **Hint:** Multiple connection attempts from same source IP to different destination IPs.  
+- **Example SPL:** index=network_logs | stats count by src_ip, dest_ip | where count > 10
+
+
+---
+
+### 8. Man-in-the-Middle (MitM) Attack
+- **Objective:** Identify potential MitM attempts in network logs.  
+- **Hint:** Look for rejected connections or incomplete TCP handshakes.  
+- **Example SPL:** index=network_logs tcp_flags="SYN" | search NOT tcp_flags="ACK"
+
+
+---
+
+### 9. Data Exfiltration
+- **Objective:** Detect large outbound data transfers.  
+- **Hint:** Look for unusually high volumes from internal to external destinations.  
+- **Example SPL:** index=network_logs direction=outbound | stats sum(bytes) by src_ip | where sum(bytes) > 1000000
+
+
+---
+
+## Notes
+- These exercises use **sample network logs** in a lab environment.  
+- The searches are safe for learning and demonstrate **practical network security monitoring**.  
+
+## Skills Demonstrated
+- Detecting port scanning and DDoS attacks  
+- Monitoring brute-force login attempts over SSH  
+- Identifying DNS tunneling and malicious payloads  
+- Detecting MitM attacks and data exfiltration  
+- Using Splunk SPL to analyze network traffic
+
+
+
 
 
 
