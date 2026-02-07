@@ -52,13 +52,16 @@ Install Active Directory Domain Services (AD DS), promote a server to a Domain C
 
 
 ### Active Directory Users & Groups
+
 Step 1: Go to Server manager and click on Add roles and Features
 
 ![Server Manager](/images/test1.png)
 
+
 Step 2: Select the Role based Installation and Select “Next”
 
 ![Server Manager](/images/test2.png)
+
 
 Step 3: Select the Server from Server Pool
 
