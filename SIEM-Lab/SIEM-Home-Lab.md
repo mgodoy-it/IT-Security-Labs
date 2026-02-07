@@ -21,24 +21,23 @@ This lab serves as part of my cybersecurity portfolio and showcases my ability t
 ## Lab Architecture
 
 Windows VM (Sysmon + Event Logs)
-│
-└──► Splunk Universal Forwarder
-│
-└──► Splunk Enterprise (Local SIEM)
+
+- Splunk Universal Forwarder
+- Splunk Enterprise (Local SIEM)
 
 
 ---
 
 ## Repository Structure
 
-SIEM/
-│
-├── 01-Environment-Setup/
-├── 02-Log-Collection/
-├── 03-SIEM-Platform/
-├── 04-Detections/
-├── 05-Investigations/
-└── 06-Dashboarding/
+SIEM
+
+- Environment-Setup
+- Log-Collection
+- SIEM-Platform
+- Detections
+- Investigations
+- Dashboarding
 
 
 ### Folder Overview
@@ -117,8 +116,4 @@ Each investigation will include:
 - Expand to Linux logs  
 - Integrate additional tools (ELK, Wazuh, etc.)  
 
----
 
-## Contact
-
-If you’d like to connect or view more of my work, feel free to reach out or explore my GitHub profile.
