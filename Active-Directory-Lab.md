@@ -52,49 +52,65 @@ Install Active Directory Domain Services (AD DS), promote a server to a Domain C
 
 
 ### Active Directory Users & Groups
-Step 1: Go to Server manager and click on Add roles and Features.
+Step 1: Go to Server manager and click on Add roles and Features
+
 ![Server Manager](/images/test1.png)
 
-Step 2: Select the Role based Installation and Select “Next”.
+Step 2: Select the Role based Installation and Select “Next”
+
 ![Server Manager](/images/test2.png)
 
-Step 3: Select the Server from Server Pool.
+Step 3: Select the Server from Server Pool
+
 ![Server Manager](/images/test3.png)
 
-Step 4: Select the Active Directory Domain Services feature.
+Step 4: Select the Active Directory Domain Services feature
+
 ![Server Manager](/images/test4.png)
 
-Then check Active Directory Domain Services in Server Roles, and click Add Features by default in the pop-up window to install active Directory Domain Services.
+Then check Active Directory Domain Services in Server Roles, and click Add Features by default in the pop-up window to install active Directory Domain Services
+
 ![Server Manager](/images/test5.png)
 
-Step 5: Confirm page > Click on “Install”.
+Step 5: Confirm page > Click on “Install”
+
 ![Server Manager](/images/test6.png)
 
-Step 6: The installation is complete. Click "Promote this server to a domain controller".
+Step 6: The installation is complete. Click "Promote this server to a domain controller"
+
 ![Server Manager](/images/test7.png)
 
-Step 7: In the Deploy Configuration pop-up window, select Add a new forest, enter the root domain name, and then click Next. In this example, the new forest is mycompany.local.
+Step 7: In the Deploy Configuration pop-up window, select Add a new forest, enter the root domain name, and then click Next. In this example, the new forest is mycompany.local
+
 ![Server Manager](/images/test8.png)
 
-Step 8: In Domain Controller Selection, enter the custom password, then click Next.
+Step 8: In Domain Controller Selection, enter the custom password, then click Next
+
 ![Server Manager](/images/test9.png)
 
-Step 9: Click Next in DNS Options.
+
+Step 9: Click Next in DNS Options
+
 ![Server Manager](/images/test10.png)
 
-Step10: In Other Options, click Next.
+Step10: In Other Options, click Next
+
 ![Server Manager](/images/test11.png)
 
-Step 11: Leave the default settings in Paths, then click Next.
+Step 11: Leave the default settings in Paths, then click Next
+
 ![Server Manager](/images/test12.png)
 
-Step 12: In Review Options, review and confirm the information, then click Next. Optionally, save the PowerShell script if you want to automate this task in another environment.
+Step 12: In Review Options, review and confirm the information, then click Next. Optionally, save the PowerShell script if you want to automate this task in another environment
+
 ![Server Manager](/images/test13.png)
 
-Step 13: After the Prerequisites Check completes, click Install.
+Step 13: After the Prerequisites Check completes, click Install
+
 ![Server Manager](/images/test14.png)
 
-Step 14: When the installation is complete, the system will automatically restart to apply the Active Directory configuration.
+Step 14: When the installation is complete, the system will automatically restart to apply the Active Directory configuration
+
 ![Server Manager](/images/test15.png)
 
 
@@ -107,10 +123,12 @@ Step 1: Create two user groups: HWC-ADFSAdmin and HWC-ADFSGuest. Open the Active
 ![UC](/images/ADUC2.png)
 
 Step 2: Create two users: John and Daenerys.
+
 ![UC](/images/ADUC3.png)
 ![UC](/images/ADUC4.png)
 
 Step 3: Add the users to their respective groups.
+
 ![UC](/images/ADUC5.png)
 
 Step 4: Finish the Active Directory installation.
