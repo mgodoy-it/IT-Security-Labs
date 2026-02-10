@@ -1,35 +1,65 @@
-# Understanding Common Attacks
+# Understanding Common Attacks (Detection & Forensics Focus)
 
-This lab demonstrates basic cybersecurity attacks using sample web and network logs. All exercises are safe to perform in a lab environment.
-
----
-
-## Threat Actor Types (Beginner-Friendly)
-- Script Kiddies: People using simple tools to experiment or cause small disruptions
-- Hacktivists: Attackers motivated by social or political goals
-- Cybercriminals: Attackers attempting to steal data or money
-- Note: All exercises are for learning only
+This lab focuses on identifying suspicious activity using log analysis and basic security detection techniques. All exercises are performed using sample data in a safe lab environment.
 
 ---
 
-## Web-Based Attacks
-- SQL Injection: Detect unusual characters or SQL keywords in web logs
-- Cross-Site Scripting (XSS): Look for suspicious JavaScript patterns in requests
-- Cross-Site Request Forgery (CSRF): Monitor requests with unexpected account changes
-- Directory Traversal: Look for attempts to access files outside the web root
-- Brute Force Login: Detect repeated failed login attempts
+## Threat Actor Types (High-Level Overview)
+- Script Kiddies: Use simple tools and scripts
+- Cybercriminals: Focus on financial gain
+- Insider Threats: Misuse of legitimate access
+- Note: This section is for awareness, not exploitation
 
 ---
 
-## Network-Based Attacks
-- Port Scanning: Detect multiple connection attempts to different ports from one IP
-- Brute Force SSH: Look for repeated SSH login failures
-- DDoS (Basic): Monitor spikes in traffic to one destination IP
-- Note: All network exercises use sample lab logs
+## Detection & Security Monitoring (Beginner Level)
+
+### 1. Brute Force Login Attempts
+- Detect repeated failed authentication attempts
+- Log sources: authentication logs, Windows event logs
+- Example tools: Splunk
+
+### 2. Port Scanning Detection
+- Identify multiple connection attempts from one source IP
+- Log sources: firewall, IDS, network logs
+
+### 3. Suspicious Login Activity
+- Detect logins from multiple IPs for the same user
+- Useful for identifying account misuse
+
+### 4. DDoS (Basic Indicators)
+- Identify spikes in traffic targeting a single system
+- Log sources: network traffic logs
+
+### 5. Malicious File Activity (Basic)
+- Detect downloads or executions of suspicious file types
+- Log sources: endpoint or HTTP logs
+
+---
+
+## Digital Forensics (Intro Level)
+
+### Log Analysis
+- Review logs to establish timelines
+- Identify unusual patterns or anomalies
+
+### Indicators of Compromise (IOCs)
+- IP addresses, file names, hashes (sample only)
+- Used to support detection and investigation
+
+### Incident Awareness
+- Understand how alerts relate to potential incidents
+- Focus on observation and documentation
 
 ---
 
 ## Notes
-- No real servers or sensitive data are used
-- All exercises are beginner-friendly and safe
-- Skills demonstrated: basic log analysis, SIEM searches, user/group management
+- All exercises are beginner-friendly
+- No exploitation or offensive techniques
+- Lab data only (non-production environment)
+
+## Skills Demonstrated
+- Log analysis and security monitoring
+- Basic incident detection
+- Introductory digital forensics concepts
+- SIEM usage (Splunk)
