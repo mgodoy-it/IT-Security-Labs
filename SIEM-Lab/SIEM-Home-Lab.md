@@ -44,12 +44,12 @@ SIEM
 
 | Folder | Description |
 |--------|-------------|
-| **01-Environment-Setup** | VM setup, network diagram, system requirements |
-| **02-Log-Collection** | Sysmon installation, config file, sample logs |
-| **03-SIEM-Platform** | Splunk installation, configuration, forwarder setup |
-| **04-Detections** | Detection rules, alert logic, screenshots |
-| **05-Investigations** | Case studies, timelines, incident analysis |
-| **06-Dashboarding** | Splunk dashboards and visualizations |
+| **Environment-Setup** | VM setup, network diagram, system requirements |
+| **Log-Collection** | Sysmon installation, config file, sample logs |
+| **SIEM-Platform** | Splunk installation, configuration, forwarder setup |
+| **Detections** | Detection rules, alert logic, screenshots |
+| **Investigations** | Case studies, timelines, incident analysis |
+| **Dashboarding** | Splunk dashboards and visualizations |
 
 ---
 
