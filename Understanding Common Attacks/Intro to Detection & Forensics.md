@@ -30,3 +30,12 @@ Each section can include:
 * Beginner-friendly example of what to look for
 * Skills demonstrated
 
+---
+
+## Script Kiddies
+
+Script kiddies are inexperienced individuals who rely on pre-made tools, scripts or exploits that someone else has written, rather than creating their own. They will often tinker out of curiosity or notoriety and have little or no idea how their attacks actually work. Script kiddies are typically limited in their abilities, but since their attacks often result in minor annoyances at worst, many take them seriously only when script kiddies are using more advanced hacker tools.
+
+
+
+
