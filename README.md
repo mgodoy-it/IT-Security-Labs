@@ -8,16 +8,13 @@ This repository contains hands-on labs and documentation related to
 IT support, system administration, and cybersecurity fundamentals.
 
 ## Labs Included
-- Active Directory (User & Group Management)
-- Splunk SIEM (Basic Searches & Alerts)
-- Nessus Vulnerability Scanning
-- SCCM / Endpoint Management (Lab Practice)
+- Active Directory (User & Group Management) - In progress.
+- Splunk SIEM (Basic Searches & Alerts) - In progress.
 
 ## Tools & Technologies
 - Windows Server
 - Active Directory
 - Splunk
-- Nessus
 - Linux
 - PowerShell (basic)
 
