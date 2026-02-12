@@ -1,3 +1,5 @@
+<!--
+
 # Intro to Detection & Forensics
 
 This lab focuses on **beginner-friendly security detection and digital forensics exercises** using safe, sample data. All activities are performed in a lab environment — no real systems are affected.
