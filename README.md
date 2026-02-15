@@ -10,6 +10,7 @@ IT support, system administration, and cybersecurity fundamentals.
 ## Labs Included
 - Active Directory (User & Group Management) - In progress.
 - Splunk SIEM (Basic Searches & Alerts) - In progress.
+- AWS Identity and Access Management - In progress. 
 - Intrusion detection and prevention - In progress.
 - Vulnerability Management - In progress.
 - Cyber Threat Intelligence - In progress.
