@@ -177,9 +177,7 @@ A _route table_ contains a set of rules, called _routes_, that are used to deter
  
 16.	Select the **lab-rtb-private1-us-east-1a** route table.
 
-
-**Note: If the newly created routes are not visible, choose refresh button at the top to update the list of routes.<img width="468" height="56" alt="image" src="https://github.com/user-attachments/assets/5f2c1ac4-5c03-49ca-b1bc-
-**
+**Note: If the newly created routes are not visible, choose refresh button at the top to update the list of routes.**
 
 17.	In the lower pane, choose the Routes tab.
 
@@ -354,7 +352,7 @@ Tip: You can submit your work multiple times. After you change your work, choose
 
 Tip: For any checks where you did not receive full points, there are sometimes helpful details provided in the submission report.
  
-**Lab complete **
+**Lab complete**
 
 ***Congratulations***! You have completed the lab.
 
