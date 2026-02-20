@@ -104,14 +104,14 @@ In this task, you will use the VPC and more option in the VPC console to create 
   -	lab-igw
   -	lab-nat-public1-us-east-1a 
 
-8.	At the bottom of the screen, choose Create VPC
+8.	At the bottom of the screen, choose **Create VPC**
 
 The VPC resources are created. The NAT Gateway will take a few minutes to activate. 
 
 Please wait until all the resources are created before proceding to the next step.
 
 
-9.	Once it is complete, choose View VPC
+9.	Once it is complete, choose **View VPC**
     
 The wizard has provisioned a VPC with a public subnet and a private subnet in one Availability Zone with route tables for each subnet. It also created an Internet Gateway and a NAT Gateway. 
 
@@ -120,5 +120,116 @@ To view the settings of these resources, browse through the VPC console links th
 For example, choose **Subnets** to view the subnet details and choose Route tables to view the route table details. 
 
 The diagram below summarizes the VPC resources you have just created and how they are configured.
+
+![IAM2](/images/Lab2.2.png)
+
+
+An _Internet gateway_ is a VPC resource that allows communication between EC2 instances in your VPC and the Internet. 
+
+The _lab-subnet-public1-us-east-1a_ public subnet has a CIDR of **10.0.0.0/24**, which means that it contains all IP addresses starting with **10.0.0.x**. The fact the route table associated with this public subnet routes 0.0.0.0/0 network traffic to the internet gateway is what makes it a public subnet.
+
+A NAT Gateway, is a VPC resource used to provide internet connectivity to any EC2 instances running in private subnets in the VPC without those EC2 instances needing to have a direct connection to the internet gateway.
+
+The lab-subnet-private1-us-east-1a private subnet has a CIDR of 10.0.1.0/24, which means that it contains all IP addresses starting with 10.0.1.x.
+
+
+## Task 2: Create Additional Subnets
+
+In this task, you will create two additional subnets for the VPC in a second _Availability Zone_. Having subnets in multiple Availability Zones within a VPC is useful for deploying solutions that provide High Availability. 
+
+After creating a VPC as you have already done, you can still configure it further, for example, by adding more **subnets**. Each subnet you create resides entirely within one Availability Zone. 
+
+10.	In the left navigation pane, choose **Subnets**.
+
+First, you will create a second _public_ subnet.
+ 
+11.	Choose **Create subnet** then configure:
+
+-	**VPC ID: lab-vpc** (select from the menu).
+-	**Subnet name**: lab-subnet-public2
+-	**Availability Zone**: Select the second Availability Zone (for example, us-east-1b)
+-	**IPv4 CIDR block**: 10.0.2.0/24
+  
+The subnet will have all IP addresses starting with **10.0.2.x.**
+ 
+12.	Choose **Create subnet**
+
+The second _public_ subnet was created. You will now create a second _private_ subnet.
+ 
+13.	Choose Create subnet then configure:
+
+- **VPC ID**: lab-vpc
+-	**Subnet name**: lab-subnet-private2
+-	**Availability Zone**: Select the second Availability Zone (for example, us-east-1b)
+-	**IPv4 CIDR bloc**k: 10.0.3.0/24
+
+The subnet will have all IP addresses starting with **10.0.3.x.**
+ 
+14.	Choose **Create subnet**
+
+The second _private_ subnet was created. 
+
+You will now configure this new private subnet to route internet-bound traffic to the NAT Gateway so that resources in the second private subnet are able to connect to the Internet, while still keeping the resources private. This is done by configuring a _Route Table_.
+
+A _route table_ contains a set of rules, called _routes_, that are used to determine where network traffic is directed. Each subnet in a VPC must be associated with a route table; the route table controls routing for the subnet.
+ 
+15.	In the left navigation pane, choose **Route tables**.
+ 
+16.	Select the **lab-rtb-private1-us-east-1a** route table.
+
+
+**Note: If the newly created routes are not visible, choose refresh button at the top to update the list of routes.<img width="468" height="56" alt="image" src="https://github.com/user-attachments/assets/5f2c1ac4-5c03-49ca-b1bc-
+**
+
+17.	In the lower pane, choose the Routes tab.
+
+Note that **Destination 0.0.0.0/0** is set to **Target nat-xxxxxxxx.** This means that traffic destined for the internet (0.0.0.0/0) will be sent to the NAT Gateway. The NAT Gateway will then forward the traffic to the internet.
+
+This route table is therefore being used to route traffic from private subnets. 
+
+18.	Choose the **Subnet associations** tab.
+
+You created this route table in task 1 when you chose to create a VPC and multiple resources in the VPC. That action also created **lab-subnet-private-1** and associated that subnet with this route table. 
+
+Now that you have created another private subnet, lab-subnet-private-2, you will associate this route table with that subnet as well.
+
+
+19.	In the Explicit subnet associations panel, choose **Edit subnet associations**
+
+20.	Leave **lab-subnet-private1-us-east-1a** selected, but also select **lab-subnet-private2**.
+
+21.	Choose **Save associations**
+
+You will now configure the Route Table that is used by the Public Subnets.
+ 
+22.	Select the **lab-rtb-public** route table (and deselect any other subnets).
+
+23.	In the lower pane, choose the **Routes** tab.
+
+Note that **Destination 0.0.0.0/0** is set to **Target igw-xxxxxxxx**, which is an Internet Gateway. This means that internet-bound traffic will be sent straight to the internet via this Internet Gateway.
+You will now associate this route table to the second public subnet you created.
+ 
+24.	Choose the **Subnet associations** tab.
+
+25.	In the **Explicit** subnet associations area, choose **Edit subnet associations**
+ 
+26.	Leave **lab-subnet-public1-us-east-1a** selected, but also select **lab-subnet-public2**.
+
+27.	Choose **Save associations**
+
+ Your VPC now has public and private subnets configured in two Availability Zones. The route tables you created in task 1 have also been updated to route network traffic for the two new subnets.
+
+
+	
+
+
+
+
+
+
+
+
+
+
 
 
