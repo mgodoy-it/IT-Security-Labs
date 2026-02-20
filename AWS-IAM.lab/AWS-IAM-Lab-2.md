@@ -181,7 +181,7 @@ A _route table_ contains a set of rules, called _routes_, that are used to deter
 
 17.	In the lower pane, choose the Routes tab.
 
-Note that **Destination 0.0.0.0/0** is set to **Target nat-xxxxxxxx.** This means that traffic destined for the internet (0.0.0.0/0) will be sent to the NAT Gateway. The NAT Gateway will then forward the traffic to the internet.
+**Note that **Destination 0.0.0.0/0** is set to **Target nat-xxxxxxxx.** This means that traffic destined for the internet (0.0.0.0/0) will be sent to the NAT Gateway. The NAT Gateway will then forward the traffic to the internet.**
 
 This route table is therefore being used to route traffic from private subnets. 
 
@@ -204,8 +204,8 @@ You will now configure the Route Table that is used by the Public Subnets.
 
 23.	In the lower pane, choose the **Routes** tab.
 
-Note that **Destination 0.0.0.0/0** is set to **Target igw-xxxxxxxx**, which is an Internet Gateway. This means that internet-bound traffic will be sent straight to the internet via this Internet Gateway.
-You will now associate this route table to the second public subnet you created.
+**Note that **Destination 0.0.0.0/0** is set to **Target igw-xxxxxxxx**, which is an Internet Gateway. This means that internet-bound traffic will be sent straight to the internet via this Internet Gateway.
+You will now associate this route table to the second public subnet you created.**
  
 24.	Choose the **Subnet associations** tab.
 
@@ -299,7 +299,7 @@ This security group will permit HTTP access to the instance.
  
 40.	In the _Configure storage_ section, keep the default settings.
 
-Note: The default settings specify that the root volume of the instance, which will host the Amazon Linux guest operating system that you specified earlier, will run on a general purpose SSD (gp3) hard drive that is 8 GiB in size. You could alternatively add more storage volumes, however that is not needed in this lab.
+**Note: The default settings specify that the root volume of the instance, which will host the Amazon Linux guest operating system that you specified earlier, will run on a general purpose SSD (gp3) hard drive that is 8 GiB in size. You could alternatively add more storage volumes, however that is not needed in this lab.**
  
 41.	Configure a script to run on the instance when it launches: 
 
@@ -309,7 +309,9 @@ Note: The default settings specify that the root volume of the instance, which w
 ![IAM2](/images/Lab2.4.png)
 
 
-This script will run with root user permissions on the guest OS of the instance. It will run automatically when the instance launches for the first time. The script installs a web server, a database, and PHP libraries, and then it downloads and installs a PHP web application on the web server.
+This script will run with root user permissions on the guest OS of the instance. It will run automatically when the instance launches for the first time. 
+
+The script installs a web server, a database, and PHP libraries, and then it downloads and installs a PHP web application on the web server.
 
 
 42.	At the bottom of the **Summary** panel on the right side of the screen choose **Launch instance**
@@ -321,6 +323,7 @@ You will see a Success message.
 44.	Wait until **Web Server 1** shows 2/2 checks passed in the **Status check** column.
 
 This may take a few minutes. Choose the refresh icon at the top of the page every 30 seconds or so to more quickly become aware of the latest status of the instance.
+
 You will now connect to the web server running on the EC2 instance.
  
 45.	Select **Web Server 1**.
