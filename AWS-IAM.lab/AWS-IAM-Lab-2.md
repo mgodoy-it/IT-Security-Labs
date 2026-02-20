@@ -217,10 +217,146 @@ You will now associate this route table to the second public subnet you created.
 
 27.	Choose **Save associations**
 
- Your VPC now has public and private subnets configured in two Availability Zones. The route tables you created in task 1 have also been updated to route network traffic for the two new subnets.
+ Your VPC now has public and private subnets configured in two _Availability Zones_. The route tables you created in task 1 have also been updated to route network traffic for the two new subnets.
 
-
+![IAM2](/images/Lab2.3.png)
 	
+
+## Task 3: Create a VPC Security Group
+
+In this task, you will create a VPC security group, which acts as a virtual firewall. When you launch an instance, you associate one or more security groups with the instance. You can add rules to each security group that allow traffic to or from its associated instances.
+ 
+28.	In the left navigation pane, choose **Security groups**.
+
+29.	Choose Create security group and then configure:
+
+- **Security group name**:_ Web Security Group_
+- **Description**: _Enable HTTP access_
+- **VPC**: choose the X to remove the currently selected VPC, then from the drop down list choose **lab-vpc**
+
+
+30.	In the **Inbound rules** pane, choose **Add rule**
+
+31.	Configure the following settings:
+    
+- Type: _HTTP_
+- Source: _Anywhere-IPv4_
+- Description: _Permit web requests_
+
+
+32.	Scroll to the bottom of the page and choose **Create security group**
+    
+You will use this security group in the next task when launching an Amazon EC2 instance.
+
+
+Task 4: Launch a Web Server Instance
+
+In this task, you will launch an Amazon EC2 instance into the new VPC. You will configure the instance to act as a web server.
+
+33.	In the search box to the right of **Services**, search for and choose **EC2** to open the EC2 console.
+ 
+34.	From the **Launch instance** menu choose **Launch instance**.
+ 
+35.	Name the instance:
+
+- Give it the name _Web Server 1_
+
+When you name your instance, AWS creates a tag and associates it with the instance. A tag is a key value pair. The key for this pair is ***Name***, and the value is the name you enter for your EC2 instance.
+
+36.	Choose an AMI from which to create the instance:
+
+- In the list of available _Quick Start_ AMIs, keep the default **Amazon Linux** selected. 
+- Also keep the default **Amazon Linux 2023 AMI** selected.
+
+The type of _Amazon Machine Image (AMI)_ you choose determines the Operating System that will run on the EC2 instance that you launch.
+ 
+37.	Choose an Instance type:
+
+- In the _Instance type_ panel, keep the default **t2.micro** selected.
+The _Instance Type_ defines the hardware resources assigned to the instance.
+ 
+38.	Select the key pair to associate with the instance:
+
+- From the **Key pair **name menu, select **vockey**.
+
+The vockey key pair you selected will allow you to connect to this instance via SSH after it has launched. 
+
+Although you will not need to do that in this lab, it is still required to identify an existing key pair, or create a new one, or choose to proceed without a key pair, when you launch an instance.
+
+
+39.	Configure the Network settings:
+
+- Next to Network settings, choose Edit, then configure: 
+
+	- **Network**: _lab-vpc _
+	- **Subnet**: _lab-subnet-public2_ (not Private!)
+	- **Auto-assign public IP**: _Enable_
+
+- Next, you will configure the instance to use the Web Security Group that you created earlier.
+
+    - Under Firewall (security groups), choose **Select existing security group.**
+	- For **Common security groups**, select **Web Security Group**.
+
+This security group will permit HTTP access to the instance.
+ 
+40.	In the _Configure storage_ section, keep the default settings.
+
+Note: The default settings specify that the root volume of the instance, which will host the Amazon Linux guest operating system that you specified earlier, will run on a general purpose SSD (gp3) hard drive that is 8 GiB in size. You could alternatively add more storage volumes, however that is not needed in this lab.
+ 
+41.	Configure a script to run on the instance when it launches: 
+
+- Expand the **Advanced details** panel.
+- Scroll to the bottom of the page and then copy and paste the code shown below into the **User data** box:
+
+![IAM2](/images/Lab2.4.png)
+
+
+This script will run with root user permissions on the guest OS of the instance. It will run automatically when the instance launches for the first time. The script installs a web server, a database, and PHP libraries, and then it downloads and installs a PHP web application on the web server.
+
+
+42.	At the bottom of the **Summary** panel on the right side of the screen choose **Launch instance**
+
+You will see a Success message.
+ 
+43.	Choose **View all instances**
+ 
+44.	Wait until **Web Server 1** shows 2/2 checks passed in the **Status check** column.
+
+This may take a few minutes. Choose the refresh icon at the top of the page every 30 seconds or so to more quickly become aware of the latest status of the instance.
+You will now connect to the web server running on the EC2 instance.
+ 
+45.	Select **Web Server 1**.
+ 
+46.	Copy the **Public IPv4 DNS** value shown in the **Details** tab at the bottom of the page.
+ 
+47.	Open a new web browser tab, paste the **Public DNS** value and press **Enter**.
+
+You should see a web page displaying the AWS logo and instance meta-data values.
+
+The complete architecture you deployed is:
+
+![IAM2](/images/Lab2.5.png)
+
+
+## Submitting your work
+
+48.	To record your progress, choose **Submit** at the top of these instructions.
+ 
+49.	When prompted, choose **Yes**.
+
+After a couple of minutes, the grades panel appears and shows you how many points you earned for each task. 
+
+If the results don't display after a couple of minutes, choose **Grades** at the top of these instructions.
+
+Tip: You can submit your work multiple times. After you change your work, choose **Submit** again. Your last submission is recorded for this lab.
+ 
+50.	To find detailed feedback about your work, choose Submission Report.
+
+Tip: For any checks where you did not receive full points, there are sometimes helpful details provided in the submission report.
+ 
+**Lab complete **
+
+***Congratulations***! You have completed the lab.
 
 
 
