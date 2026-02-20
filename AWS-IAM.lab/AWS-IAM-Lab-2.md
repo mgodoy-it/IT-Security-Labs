@@ -56,8 +56,7 @@ In this lab you build the following infrastructure:
 
 At the end of this lab you will be instructed to submit the lab to receive a score based on your progress.
 
-**Tip: The script that checks you works may only award points if you name resources and set configurations as specified. In particular, values in these instructions that appear in This Format should be entered exactly as documented (case-sensitive).
-**
+**Tip: The script that checks you works may only award points if you name resources and set configurations as specified. In particular, values in these instructions that appear in This Format should be entered exactly as documented (case-sensitive).**
 
 ## Task 1: Create Your VPC
 
@@ -71,8 +70,7 @@ In this task, you will use the VPC and more option in the VPC console to create 
 -	Choose the **VPC dashboard** link which is towards the top left of the console.
 -	Next, choose Create VPC.
   
-**Note: If you do not see a button with that name, choose the Launch VPC Wizard button instead.
-**
+**Note: If you do not see a button with that name, choose the Launch VPC Wizard button instead.**
 
 6.	Configure the VPC details in the VPC settings panel on the left:
    
