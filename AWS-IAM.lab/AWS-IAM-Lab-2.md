@@ -85,7 +85,7 @@ In this task, you will use the VPC and more option in the VPC console to create 
 -	Change **Private subnet CIDR block in us-east-1a** to 10.0.1.0/24
 -	Set **NAT** gateways to **In 1 AZ**.
 -	Set **VPC endpoints** to None.
--	Keep both **DNS hostnames** and **DNS resolution** <u>enabled</u>.
+-	Keep both **DNS hostnames** and **DNS resolution** <ins>enabled</ins>.
 
 
 7.	In the Preview panel on the right, confirm the settings you have configured.
