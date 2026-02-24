@@ -363,10 +363,7 @@ The instance will enter the stopping state and will shutdown.
 
 57. Close your private browser window.
 
-
-## Lab complete<br/>
-Congratulations! You have completed the lab.
-
+## Completed the Lab 
 
 ## Conclusion
 
