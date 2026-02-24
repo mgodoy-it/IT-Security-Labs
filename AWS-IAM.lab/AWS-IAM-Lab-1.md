@@ -176,12 +176,57 @@ For the remainder of this lab, you will work with these Users and Groups to enab
 
 Your company is growing its use of Amazon Web Services, and is using many Amazon EC2 instances and a great deal of Amazon S3 storage. You wish to give access to new staff depending upon their job function:
 
+![IAM1](/images/Lab1.4.png)
 
 
+## Task 2: Add Users to Groups
+
+You have recently hired user-1 into a role where they will provide support for Amazon S3. You will add them to the S3-Support group so that they inherit the necessary permissions via the attached AmazonS3ReadOnlyAccess policy.
+
+You can ignore any "not authorized" errors that appear during this task. They are caused by your lab account having limited permissions and will not impact your ability to complete the lab.
+
+ 
+## Add user-1 to the S3-Support Group
+
+23. In the left navigation pane, choose User groups.
+
+24. Choose the S3-Support group link.
+
+25. Choose the Users tab.
+
+26. In the Users tab, choose Add users.
+
+27. In the Add Users to S3-Support window, configure the following:
+
+- Select  **user-1**.
+
+- At the bottom of the screen, choose **Add users**.
+
+- In the **Users** tab you will see that user-1 has been added to the group.
 
 
+## Add user-2 to the EC2-Support Group
+
+You have hired **user-2** into a role where they will provide support for Amazon EC2.
+
+28. Using similar steps to the ones above, add **user-2** to the **EC2-Support** group.<br/>
+    user-2 should now be part of the **EC2-Support** group.
 
 
+## Add user-3 to the EC2-Admin Group
+
+You have hired user-3 as your Amazon EC2 administrator, who manage your EC2 instances.
+
+29. Using similar steps to the ones above, add **user-3** to the **EC2-Admin group**.<br/>
+
+user-3 should now be part of the EC2-Admin group.
+
+ 
+30. In the navigation pane on the left, choose **User groups**.<br/.
+
+Each Group should now have a **1** in the Users column, indicating the number of Users in each Group.<br/.
+
+If you do not have a **1** beside each group, revisit the above instructions above to ensure that each user is assigned to a User group, as shown in the table in the Business Scenario section.
 
 
 
