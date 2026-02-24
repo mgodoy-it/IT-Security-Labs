@@ -1,3 +1,4 @@
+
 ## Lab 1: Introduction to AWS IAM
 
 AWS Identity and Access Management (IAM) is a web service that enables Amazon Web Services (AWS) customers to manage users and user permissions in AWS. With IAM, you can centrally manage users, security credentials such as access keys, and permissions that control which AWS resources users can access.
@@ -379,4 +380,8 @@ Congratulations! You now have successfully:
 
 - Experimented with the effects of policies on service access
 
+
+<!--
+© 2023, Amazon Web Services, Inc. and its affiliates. All rights reserved. This work may not be reproduced or redistributed, in whole or in part, without prior written permission from Amazon Web Services, Inc. Commercial copying, lending, or selling is prohibited.
+-->
 
