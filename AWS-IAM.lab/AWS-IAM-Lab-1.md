@@ -222,19 +222,164 @@ You have hired user-3 as your Amazon EC2 administrator, who manage your EC2 inst
 user-3 should now be part of the EC2-Admin group.
 
  
-30. In the navigation pane on the left, choose **User groups**.<br/.
+30. In the navigation pane on the left, choose **User groups**.<br/>
 
-Each Group should now have a **1** in the Users column, indicating the number of Users in each Group.<br/.
+Each Group should now have a **1** in the Users column, indicating the number of Users in each Group.<br/>
 
 If you do not have a **1** beside each group, revisit the above instructions above to ensure that each user is assigned to a User group, as shown in the table in the Business Scenario section.
 
 
+## Task 3: Sign-In and Test Users
+
+In this task, you will test the permissions of each IAM User.
+
+31. In the navigation pane on the left, choose **Dashboard**.<br/>
+
+A **Sign-in URL for IAM users in this account** link is displayed on the right. It will look similar to: _https://123456789012.signin.aws.amazon.com/console_
+
+This link can be used to sign-in to the AWS Account you are currently using.
+
+32. Copy the **Sign-in URL for IAM users in this account** to a text editor.
+
+33. Open a private (Incognito) window.
+
+**Google Chrome**
+
+- Choose the ellipsis **:** at the top-right of the screen
+
+- Select **New Incognito Window**
 
 
+34. Paste the **IAM users sign-in** link into the address bar of your private browser session and press Enter.
+
+Next, you will sign-in as **user-1**, who has been hired as your Amazon S3 storage support staff.
+
+35. Sign-in with:
+
+**IAM user name**: user-1
+
+**Password**: Lab-Password1
 
 
+36. In the search box to the right of **Services**, search for and choose **S3** to open the S3 console.
+
+37. Choose the name of the bucket that exists in the account and browse the contents.
+
+Since your user is part of the **S3-Support** Group in IAM, they have permission to view a list of Amazon S3 buckets and the contents.
+
+Note: The bucket does not contain any objects.
+
+Now, test whether they have access to Amazon EC2.
+
+38. In the search box to the right of **Services**, search for and choose **EC2** to open the EC2 console.
+
+39. In the left navigation pane, choose **Instances**.
+
+_You cannot see any instances. Instead, you see a message that states You are not authorized to perform this operation. This is because this user has not been granted any permissions to access Amazon EC2._
+
+You will now sign-in as **user-2**, who has been hired as your Amazon EC2 support person.
+
+40. Sign user-1 out of the **AWS Management Console** by completing the following actions:
+
+- At the top of the screen, choose **user-1**
+
+- Choose **Sign Out**
 
 
+![IAM1](/images/Lab1.2.png)
 
+
+41. Paste the **IAM users sign-in** link into your private browser tab's address bar and press **Enter**.
+
+_Note: This link should be in your text editor._
+
+42. Sign-in with:
+
+**IAM user name**: user-2
+
+**Password**: Lab-Password2
+
+In the search box to the right of **Services**, search for and choose **EC2** to open the EC2 console.
+
+44. In the navigation pane on the left, choose **Instances**.
+
+You are now able to see an Amazon EC2 instance because you have Read Only permissions. However, you will not be able to make any changes to Amazon EC2 resources.
+
+_ If you cannot see an Amazon EC2 instance, then your Region may be incorrect. In the top-right of the screen, pull-down the Region menu and select the region that you noted at the start of the lab (for example, **N. Virginia**)._
+
+- Select the instance named **LabHost**.
+
+45. In the **Instance state** menu above, select **Stop instance**.
+
+46. In the **Stop Instance** window, select **Stop**.
+
+_You will receive an error stating You are not authorized to perform this operation. This demonstrates that the policy only allows you to view information, without making changes. _
+
+47. Choose the **X** to close the Failed to stop the instance message.<br/>
+
+Next, check if user-2 can access Amazon S3.
+
+
+48. In the search box to the right of **Services**, search for and choose **S3** to open the S3 console.
+
+_You will see the message **You don't have permissions to list buckets** because user-2 does not have permission to access Amazon S3._
+
+You will now sign-in as **user-3**, who has been hired as your Amazon EC2 administrator.
+
+49. Sign user-2 out of the **AWS Management Console** by completing the following actions:
+
+At the top of the screen, choose **user-2**
+
+Choose **Sign Out**
+
+![IAM1](/images/Lab1.3.png)
+
+
+50. Paste the** IAM users sign-in** link into your private window and press **Enter**.
+
+51. Paste the sign-in link into the address bar of your private web browser tab again. If it is not in your clipboard, retrieve it from the text editor where you stored it earlier.
+
+52. Sign-in with:
+
+- **IAM user name**: user-3
+
+- **Password**: Lab-Password3
+
+53. In the search box to the right of **Services**, search for and choose **EC2** to open the EC2 console.
+
+54. In the navigation pane on the left, choose **Instances**.
+
+As an EC2 Administrator, you should now have permissions to Stop the Amazon EC2 instance.
+
+Select the instance named **LabHost**.
+
+_If you cannot see an Amazon EC2 instance, then your Region may be incorrect. In the top-right of the screen, pull-down the Region menu and select the region that you noted at the start of the lab (for example, N. Virginia)._
+
+55. In the **Instance state** menu, choose **Stop instance**.
+
+56. In the **Stop instance** window, choose **Stop**.
+
+The instance will enter the stopping state and will shutdown.
+
+57. Close your private browser window.
+
+
+## Lab complete<br/>
+Congratulations! You have completed the lab.
+
+
+## Conclusion
+
+Congratulations! You now have successfully:
+
+- Explored pre-created IAM users and groups
+
+- Inspected IAM policies as applied to the pre-created groups
+
+- Followed a real-world scenario, adding users to groups with specific capabilities enabled
+
+- Located and used the IAM sign-in URL
+
+- Experimented with the effects of policies on service access
 
 
