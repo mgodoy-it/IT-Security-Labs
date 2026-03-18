@@ -130,10 +130,143 @@ You should see output similar to:
 ![IAM4](/images/Lab4.2.png)
 
 
+The output shows that the original 8GB **/dev/xvda1** disk volume mounted at / which indicates that it is the root volume. It hosts the Linux operating system of the EC2 instance. 
+
+The 1GB other volume that you attached to the Lab instance is not listed, because you have not yet created a file system on it or mounted the disk. Those actions are necessary so that Linux operating system can make use of the new storage space. You will take those actions next.
+
+19.	Create an ext3 file system on the new volume:
+
+```
+sudo mkfs -t ext3 /dev/sdf
+```
+
+20.Create a directory for mounting the new storage volume:
+
+```
+sudo mkdir .mnt/data-store
+```
+
+18.	Mount the new volume:
+```
+sudo mount /dev/sdf /mnt/data-store
+```
+
+To configure the Linux instance to mount this volume whenever the instance is started, you will need to add a line to /etc/fstab. Run the command below to accomplish that:
+
+```
+echo "/dev/sdf   /mnt/data-store ext3 defaults,noatime 1 2" | sudo tee -a /etc/fstab
+```
+
+19.	View the configuration file to see the setting on the last line:
+```
+cat /etc/fstab
+```
+
+20.	View the available storage again:
+```
+df -h
+```
+The output will look similar to what is shown below.
+
+![IAM4](/images/Lab4.3.png)
+
+18.	Notice the last line. The output now lists /dev/xvdf which is the new mounted volume.
+ 
+19.	On your mounted volume, create a file and add some text to it.
+```
+sudo sh -c "echo some text has been written > /mnt/data-store/file.txt"
+```
+
+20.	Verify that the text has been written to your volume.
+```
+cat /mnt/data-store/file.txt
+```
+Leave the EC2 Instance Connect session running. You will return to it later in this lab.
 
 
+## Task 5: Create an Amazon EBS Snapshot
+
+In this task, you will create a snapshot of your EBS volume.
+
+You can create any number of point-in-time, consistent snapshots from Amazon EBS volumes at any time. Amazon EBS snapshots are stored in Amazon S3 with high durability. New Amazon EBS volumes can be created out of snapshots for cloning or restoring backups. Amazon EBS snapshots can also be easily shared among AWS users or copied over AWS regions.
+
+26.	In the **EC2 Console,** choose **Volumes** and select **My Volume**.
+
+27. In the **Actions** menu, select **Create snapshot**.
+
+28. Choose **Add tag** then configure:
+-	Key: **Name**
+-	Value: **My Snapshot**
+-	Choose **Create snapshot**
+
+29.	In the left navigation pane, choose Snapshots.
+
+Your snapshot is displayed. The status will first have a state of Pending, which means that the snapshot is being created. It will then change to a state of _Completed_. 
+Note: Only used storage blocks are copied to snapshots, so empty blocks do not occupy any snapshot storage space.
+ 
+30.	In your EC2 Instance Connect session, delete the file that you created on your volume.
+```
+sudo rm /mnt/data-store/file.txt
+```
+
+31.	Verify that the file has been deleted.
+```
+ls /mnt/data-store/
+```
+Your file has been deleted.
 
 
+## Task 6: Restore the Amazon EBS Snapshot
+
+If you ever wish to retrieve data stored in a snapshot, you can Restore the snapshot to a new EBS volume.
+ 
+## Create a Volume Using Your Snapshot
+
+32.	In the **EC2 console**, select **My Snapshot**.
+ 
+33.	In the **Actions** menu, select **Create volume from snapshot**.
+ 
+34.	For **Availability Zone**, select the same availability zone that you used earlier.
+ 
+35.	Choose **Add tag** then configure:
+-	Key: **Name**
+-	Value: **Restored Volume**
+-	Choose **Create volume**
+
+_Note: When restoring a snapshot to a new volume, you can also modify the configuration, such as changing the volume type, size or Availability Zone._
+
+## Attach the Restored Volume to Your EC2 Instance
+
+36.	In the left navigation pane, choose **Volumes**.
+ 
+37.	Select **Restored Volume**.
+ 
+38.	In the **Actions** menu, select **Attach volume**.
+ 
+39.	Choose the **Instance** field, then select the **Lab** instance that appears.
+
+_Note that the **Device** field is set to **/dev/sdg**. You will use this device identifier in a later task._
+
+40.	Choose **Attach volume**
+The volume state is now in-use.
+
+## Mount the Restored Volume
+
+41.	Create a directory for mounting the new storage volume:
+```
+sudo mkdir /mnt/data-store2
+```
+
+42.	Mount the new volume:
+```
+sudo mount /dev/sdg /mnt/data-store2
+```
+
+43.	Verify that volume you mounted has the file that you created earlier.
+```
+ls /mnt/data-store2/
+```
+You should see file.txt.
 
 
 
