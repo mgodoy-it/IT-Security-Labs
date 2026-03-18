@@ -2,6 +2,6 @@
 
 ## Lab Overview
 
-![IAM4](/images/Lab3.1.png)
+
 
 
