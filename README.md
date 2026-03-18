@@ -8,12 +8,13 @@ This repository contains hands-on labs and documentation related to
 IT support, system administration, and cybersecurity fundamentals.
 
 ## Labs Included
-- Active Directory (User & Group Management) - In progress.
+- Active Directory (User & Group Management)
+- Introduction to AWS Identity and Access Management (IAM)
 - Splunk SIEM (Basic Searches & Alerts) - In progress.
 - Intrusion detection and prevention - In progress.
 - Vulnerability Management - In progress.
 - Cyber Threat Intelligence - In progress.
-- Introduction to AWS Identity and Access Management (IAM)
+
 
 
 
