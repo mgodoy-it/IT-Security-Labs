@@ -114,14 +114,117 @@ You will use this DB subnet group when creating the database in the next task.
 ![IAM5](/images/Lab5.3.png)
 
 
+## Task 3: Create an Amazon RDS DB Instance
+
+In this task, you will configure and launch a Multi-AZ Amazon RDS deployment of a MySQL database instance.
+
+Amazon RDS **Multi-AZ** deployments provide enhanced availability and durability for Database (DB) instances, making them a natural fit for production database workloads. When you provision a Multi-AZ DB instance, Amazon RDS automatically creates a primary DB instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ).
+
+17. In the left navigation pane, choose Databases.
+
+![IAM5](/images/Lab5.4.png)
+
+18.	Choose **Create database**
+
+If you see **Switch to the new database creation flow ** at the top of the screen, please choose it.
+ 
+19.	Select **MySQL** under **Engine Options**.
+ 
+20.	Under **Templates** choose **Dev/Test**.
+
+21.	Under **Availability and durability** choose **Multi-AZ DB instance**.
+ 
+22.	Under **Settings**, configure:
+
+-	DB instance identifier: **lab-db**
+-	Master username: **main**
+-	Master password: **lab-password**
+-	Confirm password: **lab-password**
+ 
+23.	Under **DB instance class**, configure:
+
+-	Select **Burstable classes (includes t classes).**
+-	Select **db.t3.micro**
+ 
+24.	Under **Storage**, configure:
+
+-	Storage type: **General Purpose (SSD)**
+-	Allocated storage: **20**
+ 
+25.	Under **Connectivity**, configure:
+
+-	Virtual Private Cloud (VPC): **Lab VPC**
+ 
+26.	Under **Existing VPC security groups**, from the dropdown list:
+
+-	Choose **DB Security Group**.
+-	Deselect **default**.
+
+27.	Under **Monitoring** expand **Additional configuration**.
+
+-	Uncheck **Enable Enhanced monitoring**.
+
+28.	Under **Additional configuration**, configure:
+
+-	Initial database name: **lab**
+-	Uncheck **Enable automatic backups**.
+-	Uncheck **Enable encryption**
+
+This will turn off backups, which is not normally recommended, but will make the database deploy faster for this lab.
+
+29.	Choose **Create database**
+
+Your database will now be launched.
+
+If you receive an error that mentions "not authorized to perform: **iam:CreateRole"**, make sure you unchecked Enable Enhanced monitoring in the previous step.
+
+30.	Choose **lab-db** (choose the link itself).
+
+You will now need to wait **approximately 4 minutes** for the database to be available. The deployment process is deploying a database in two different Availability zones.
+While you are waiting, you might want to review the Amazon RDS FAQs or grab a cup of coffee.
+ 
+31.	Wait until **Info** changes to **Modifying** or **Available**.
+ 
+32.	Scroll down to the **Connectivity & security** section and copy the **Endpoint** field.
+
+It will look similar to: _lab-db.xxxx.us-east-1.rds.amazonaws.com._
+ 
+33.	Paste the Endpoint value into a text editor. You will use it later in the lab.
 
 
+## Task 4: Interact with Your Database
+
+In this task, you will open a web application running on a web server that has been created for you. You will configure it to use the database that you just created.
+
+34.	To discover the **WebServer** IP address, choose on the AWS Details drop down menu above these instructions. Copy the IP address value.
+ 
+35.	Open a new web browser tab, paste the WebServer IP address and press Enter.
+
+The web application will be displayed, showing information about the EC2 instance.
+ 
+36.	Choose the **RDS** link at the top of the page.
+
+You will now configure the application to connect to your database.
+ 
+37.	Configure the following settings:
+
+-	Endpoint: **Paste the Endpoint you copied to a text editor earlier**
+-	Database: **lab**
+-	Username: **main**
+-	Password: **lab-password**
+-	Choose **Submit**
 
 
+A message will appear explaining that the application is running a command to copy information to the database. After a few seconds the application will display an **Address Book**.
 
+The Address Book application is using the RDS database to store information.
+ 
+38.	Test the web application by adding, editing and removing contacts.
 
+The data is being persisted to the database and is automatically replicating to the second Availability Zone.
 
-
+## Lab Complete
+Congratulations! You have completed the lab.
 
 
 
