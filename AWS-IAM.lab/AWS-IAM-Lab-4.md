@@ -32,4 +32,30 @@ For those wanting even more durability, Amazon EBS provides the ability to creat
 
 This lab guide explains basic concepts of Amazon EBS in a step-by-step fashion. However, it can only give a brief overview of Amazon EBS concepts. For further information, see the [Amazon EBS documentation. ](http://aws.amazon.com/ebs/)
 
+## Amazon EBS Volume Features
+
+**Amazon EBS volumes deliver the following features:**
+
+-	Persistent storage: Volume lifetime is independent of any particular Amazon EC2 instance.
+-	General purpose: Amazon EBS volumes are raw, unformatted block devices that can be used from any operating system.
+-	High performance: Amazon EBS volumes are equal to or better than local Amazon EC2 drives.
+-	High reliability: Amazon EBS volumes have built-in redundancy within an Availability Zone.
+-	Designed for resiliency: The AFR (Annual Failure Rate) of Amazon EBS is between 0.1% and 1%.
+-	Variable size: Volume sizes range from 1 GB to 16 TB.
+-	Easy to use: Amazon EBS volumes can be easily created, attached, backed up, restored, and deleted.
+
+
+## Accessing the AWS Management Console
+
+1.	At the top of these instructions, choose **Start Lab**.
+  o	The lab session starts.
+  o	A timer displays at the top of the page and shows the time remaining in the session.
+  Tip: To refresh the session length at any time, choose **Start Lab** again before the timer reaches 0:00.
+  o	Before you continue, wait until the circle icon to the right of the AWS link in the upper-left corner turns green. 
+ 
+2.	To connect to the AWS Management Console, choose the **AWS** link in the upper-left corner.
+  o	A new browser tab opens and connects you to the console.
+ _ Tip: If a new browser tab does not open, a banner or icon is usually at the top of your browser with the message that your browser is preventing the site from opening pop-up windows. Choose the banner or icon, and then choose Allow pop-ups._
+
+
 
