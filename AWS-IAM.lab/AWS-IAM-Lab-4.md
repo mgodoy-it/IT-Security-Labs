@@ -48,14 +48,100 @@ This lab guide explains basic concepts of Amazon EBS in a step-by-step fashion. 
 ## Accessing the AWS Management Console
 
 1.	At the top of these instructions, choose **Start Lab**.
-  o	The lab session starts.
-  o	A timer displays at the top of the page and shows the time remaining in the session.
+  -	The lab session starts.
+  -	A timer displays at the top of the page and shows the time remaining in the session.
   Tip: To refresh the session length at any time, choose **Start Lab** again before the timer reaches 0:00.
-  o	Before you continue, wait until the circle icon to the right of the AWS link in the upper-left corner turns green. 
+  -	Before you continue, wait until the circle icon to the right of the AWS link in the upper-left corner turns green. 
  
 2.	To connect to the AWS Management Console, choose the **AWS** link in the upper-left corner.
-  o	A new browser tab opens and connects you to the console.
- _ Tip: If a new browser tab does not open, a banner or icon is usually at the top of your browser with the message that your browser is preventing the site from opening pop-up windows. Choose the banner or icon, and then choose Allow pop-ups._
+  -	A new browser tab opens and connects you to the console.
+   _Tip: If a new browser tab does not open, a banner or icon is usually at the top of your browser with the message that your browser is preventing the site from opening pop-up windows. Choose the banner or icon, and then choose Allow pop-ups._
+
+3.	Arrange the AWS Management Console tab so that it displays along side these instructions. Ideally, you will be able to see both browser tabs at the same time, to make it easier to follow the lab steps.
+
+
+## Task 1: Create a New EBS Volume
+
+In this task, you will create and attach an Amazon EBS volume to a new Amazon EC2 instance.
+
+4.	In the AWS Management Console, in the search box next to Services , search for and select EC2.
+5.	In the left navigation pane, choose Instances.
+
+An Amazon EC2 instance named Lab has already been launched for your lab.
+ 
+6.	Note the Availability Zone of the instance. It will look similar to us-east-1a.
+7.	In the left navigation pane, choose Volumes.
+  You will see an existing volume that is being used by the Amazon EC2 instance. This volume has a size of 8 GiB, which makes it easy to distinguish from the volume you will create next, which will be 1 GiB in size.
+
+8.	Choose **Create volume** then configure:
+  -	**Volume Type**: General Purpose SSD (gp2)
+  -**	Size (GiB)**: 1. NOTE: You may be restricted from creating large volumes.
+  -	**Availability Zone:** Select the same availability zone as your EC2 instance.
+  -	Choose **Add tag**
+  -	In the Tag Editor, enter:
+    -	Key: **Name**
+    -	Value: **My Volume**
+ 
+9.	Choose **Create Volume**
+  Your new volume will appear in the list, and will move from the Creating state to the Available state. You may need to choose **refresh** to see your new volume.
+
+## Task 2: Attach the Volume to an Instance
+
+In this task you will attach the new EBS volume to the Amazon EC2 instance.
+
+10.	Select **My Volume**.
+ 
+11.	In the **Actions** menu, choose **Attach volume**.
+ 
+12.	Choose the Instance field, then select the Lab instance.
+Note that the Device name is set to /dev/sdf. Notice also the message displayed that "Newer Linux kernels may rename your devices to /dev/xvdf through /dev/xvdp internally, even when the device name entered here (and shown in the details) is /dev/sdf through /dev/sdp."
+ 
+13.	Choose **Attach volume**
+The volume state is now _In-use_.
+
+
+## Task 3: Connect to Your Amazon EC2 Instance
+
+In this task, you will connect to the EC2 instance using EC2 Instance Connect which provides access to a terminal in the browser.
+
+14.	In the AWS Management Console, in the search box next to **Services** , search for and select **EC2**.
+ 
+15.	Choose **Instances**.
+ 
+16.	Select the **Lab** instance, and then choose **Connect**.
+
+17.	On the **EC2 Instance Connect** tab, choose **Connect**. 
+  An EC2 Instance Connect terminal session opens and displays a **$** prompt.
+
+
+## Task 4: Create and Configure Your File System
+
+In this task, you will add the new volume to a Linux instance as an ext3 file system under the /mnt/data-store mount point.
+
+18.	View the storage available on your instance:
+
+Run the following command:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
