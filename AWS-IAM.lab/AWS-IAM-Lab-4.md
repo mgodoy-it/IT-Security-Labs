@@ -122,8 +122,12 @@ In this task, you will add the new volume to a Linux instance as an ext3 file sy
 
 Run the following command:
 
+```
+df -h
+```
+You should see output similar to:
 
-
+![IAM4](/images/Lab4.2.png)
 
 
 
