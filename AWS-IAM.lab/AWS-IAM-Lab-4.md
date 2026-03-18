@@ -269,6 +269,23 @@ ls /mnt/data-store2/
 You should see file.txt.
 
 
+## Conclusion
+
+Congratulations! You now have successfully:
+
+-	Created an Amazon EBS volume
+-	Attached the volume to an EC2 instance
+-	Created a file system on the volume
+-	Added a file to volume
+-	Created a snapshot of your volume
+-	Created a new volume from the snapshot
+-	Attached and mounted the new volume to your EC2 instance
+-	Verified that the file you created earlier was on the newly created volume
+
+## Lab Complete
+
+Congratulations! You have completed the lab.
+
 
 
 
