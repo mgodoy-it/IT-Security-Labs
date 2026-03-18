@@ -13,7 +13,8 @@ IT support, system administration, and cybersecurity fundamentals.
 - Intrusion detection and prevention - In progress.
 - Vulnerability Management - In progress.
 - Cyber Threat Intelligence - In progress.
-- Introduction to AWS IAM 
+- Introduction to AWS Identity and Access Management (IAM)
+
 
 
 ## Tools & Technologies
