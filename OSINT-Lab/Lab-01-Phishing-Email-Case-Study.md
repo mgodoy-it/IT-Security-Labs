@@ -8,3 +8,16 @@
 - Identified spoofed sender domain and SMTP relay
 - Extracted malicious payload link → mapped to fake login page
 - WHOIS & passive DNS reveal use of bulletproof hosting
+
+
+## Step 1 — Create the case
+
+We'll first create a fictional phishing email and investigate:
+
+📧 Email header
+🌐 Sender domain
+🔗 Suspicious URL
+🔎 Domain/WHOIS information
+🦠 VirusTotal indicators
+🗺️ Infrastructure/hosting relationships
+📋 Final investigation report
