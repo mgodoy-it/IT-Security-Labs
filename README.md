@@ -14,6 +14,7 @@ IT support, system administration, and cybersecurity fundamentals.
 - Intrusion detection and prevention - In progress.
 - Vulnerability Management - In progress.
 - Cyber Threat Intelligence - In progress.
+- OSINT - In progress.
 
 
 
